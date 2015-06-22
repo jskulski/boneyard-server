@@ -2,6 +2,3 @@
 
 [![Build Status](https://travis-ci.org/jskulski/boneyard-server.svg)](https://travis-ci.org/jskulski/boneyard-server)
 
-
-- 
-Update: 2
