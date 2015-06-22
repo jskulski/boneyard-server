@@ -5,6 +5,9 @@ class CardStack:
         """
         self.cards = cards
 
+    def is_empty(self):
+        return self.cards == []
+
 class Card:
     def __init__(self, id, title=None, body=None):
         self.id = 1
