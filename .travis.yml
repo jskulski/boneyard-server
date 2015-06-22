@@ -1,8 +1,13 @@
 language: python
 python:
-  - "2.7"
-
+- '2.7'
 install:
-  - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script: py.test
+deploy:
+  provider: heroku
+  api_key:
+    secure: QPZg3QbO+c7mp8hFhNJOJhh48VPXg9PNLKqJuK7/s1nragzZlfI7u6CoAaEL755XWeqGsBYN5mp0zhXXGvhT9V+CV+f0v5WY/k/3oIUB1GBLTvdq2T7DjyhIbhozvdUo9e31MpYT4aHptitafWaWxblGFWBUeH17W0utAOQL14m13eKF+yMucTsWzGEBiD+qbzG/hTLZlE3RvtweCsmfAIc1IHQ8SNHiZADc+HIrYEcWCcXZ0EDCYT7Q7wLq3cZrd0eVwGuSdk6W6TYe1T7LSyffaFIcn5qNigcj7grlLKBA/SSQTkLRf1cwOgGX/yHwBh/edutN2/VCZ2NC/4kp9uvZBv8fWB2tY4xAsc2xY3yITFOCTqYgsNAnlFENwWs67WG8chbNBfj4n3fnV1A/L4b71NPiL0srezEl77k7fGy84qr/IWc80ZyzWyDTusAWz9dIqwgF+Z1vjA49SlOw+3tZ/XF3Neexi+cp1SMBG55STdEUVzNTvtlAOImZxiYRDy4loTqJFojikZmK1RlhHNpPDzhrxVL+Tj5t2GJrrZu6C4FyePsVK4wHlXfiLE4BVoYkWMFHv3A8HJDUtk53uVxk7enL2YkCyJxBtSIwqAV5nWkskZQAamodOub9JDpvzftZhEFpc+nUnuJlD//cd+ft/OBonwKAhW2EHGi+Skw=
+  app: boneyard-server
+  on:
+    repo: jskulski/boneyard-server
