@@ -1,8 +1,5 @@
 from flask import Flask, request, redirect, jsonify
 
-import json
-
-
 app = Flask(__name__)
 
 body = None
