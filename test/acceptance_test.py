@@ -37,14 +37,3 @@ def test_initial_card_stack_is_empty():
     card_stack = Boneyard.get_card_stack()
 
     assert card_stack.is_empty()
-
-# def test_creating_a_card_adds_it_to_the_stack():
-#     expected_title = 'Title!'
-#     expected_body  = 'Text!'
-#     card = Boneyard.create_card(title=expected_title, body=expected_body)
-#     card_stack = Boneyard.get_card_stack()
-#
-#     assert not card_stack.is_empty()
-#     # assert card in card_stack
-
-
