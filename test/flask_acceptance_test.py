@@ -1,8 +1,5 @@
-import pytest
-
 import json
 
-from flask import Response
 from Boneyard import FlaskApp
 
 FlaskApp.app.testing = True
@@ -12,24 +9,28 @@ def client():
     client = FlaskApp.app.test_client()
     return client
 
+def test_cards_returns_json():
+    response = client().get('/cards')
+    assert response.mimetype == 'application/json'
+
 def test_card_stack_is_empty_on_first_request():
     response = client().get('/cards')
 
     assert response.status_code == 200
-    assert json.loads(response.data) == {}
+    assert json.loads(response.data) == dict(
+        cards=[]
+    )
 
-def test_creating_a_card_redirects_to_card_stack_and_includes_the_created_card():
+def test_creating_a_card_results_in_a_list_with_that_card():
     expected_body = "This is the content of the card"
     response = client().post('/card', data=dict(
         body=expected_body
     ), follow_redirects=True)
 
     assert response.status_code == 200
-    assert expected_body in response.data
-
-
-
-
-
-
+    assert json.loads(response.data) == {
+        'cards': [
+            {'body': expected_body}
+        ]
+    }
 

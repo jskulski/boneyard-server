@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, jsonify
 
 import json
 
@@ -11,9 +11,13 @@ body = None
 def retrieve_card_stack():
     global body
     if body is not None:
-        return json.dumps(body)
+        return jsonify({
+            'cards': [
+                dict(body=body)
+            ]
+        })
     else:
-        return json.dumps({})
+        return jsonify({'cards':[]})
 
 @app.route('/card', methods=['POST'])
 def create_new_card():
