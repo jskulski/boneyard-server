@@ -1,1 +1,1 @@
-web: gunicorn hello:app --log-file=-
+web: gunicorn Boneyard.FlaskApp:app --log-file=-
