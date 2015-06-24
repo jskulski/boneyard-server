@@ -1,3 +1,7 @@
+import sys, os
+test_directory = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, test_directory + '/../')
+
 import json
 
 from Boneyard import FlaskApp
