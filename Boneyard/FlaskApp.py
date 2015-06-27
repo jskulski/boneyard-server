@@ -1,11 +1,11 @@
-from flask import Flask, request, redirect, jsonify
+from flask import Flask, request, redirect, jsonify, url_for
 
 app = Flask(__name__)
 
 body = None
 
 @app.route('/cards', methods=['GET'])
-def retrieve_card_stack():
+def retrieve_card_list():
     global body
     if body is not None:
         return jsonify({
@@ -16,8 +16,16 @@ def retrieve_card_stack():
     else:
         return jsonify({'cards':[]})
 
+
 @app.route('/card', methods=['POST'])
 def create_new_card():
+    if request.method == 'GET':
+        print 'GET'
+        return 'GET?!'
     global body
     body = request.form['body']
-    return redirect('/cards')
+    return redirect(url_for('retrieve_card_list'))
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()

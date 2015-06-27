@@ -29,7 +29,7 @@ def test_creating_a_card_results_in_a_list_with_that_card():
     expected_body = "This is the content of the card"
     response = client().post('/card', data=dict(
         body=expected_body
-    ), follow_redirects=True)
+    ), follow_redirects=True);
 
     assert response.status_code == 200
     assert json.loads(response.data) == {
